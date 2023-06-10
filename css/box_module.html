@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>盒模型 | GooPuu</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="技术、前端技术，整理技术文档">
+    
+    <link rel="preload" href="/assets/css/0.styles.5be624d7.css" as="style"><link rel="preload" href="/assets/js/app.a2be46e1.js" as="script"><link rel="preload" href="/assets/js/2.c4a55d75.js" as="script"><link rel="preload" href="/assets/js/11.116edcd9.js" as="script"><link rel="prefetch" href="/assets/js/10.00d50cc6.js"><link rel="prefetch" href="/assets/js/12.8d813279.js"><link rel="prefetch" href="/assets/js/13.cf20dfe4.js"><link rel="prefetch" href="/assets/js/14.9240ee25.js"><link rel="prefetch" href="/assets/js/15.6f2e36ad.js"><link rel="prefetch" href="/assets/js/16.31963ec0.js"><link rel="prefetch" href="/assets/js/17.1a990a93.js"><link rel="prefetch" href="/assets/js/18.25649302.js"><link rel="prefetch" href="/assets/js/19.f501b2b3.js"><link rel="prefetch" href="/assets/js/20.d950bcb4.js"><link rel="prefetch" href="/assets/js/21.682698e1.js"><link rel="prefetch" href="/assets/js/22.21b445b2.js"><link rel="prefetch" href="/assets/js/23.d400bd60.js"><link rel="prefetch" href="/assets/js/24.2d52e7c6.js"><link rel="prefetch" href="/assets/js/25.b5c2bf83.js"><link rel="prefetch" href="/assets/js/26.9e575ce0.js"><link rel="prefetch" href="/assets/js/27.78bcdcb3.js"><link rel="prefetch" href="/assets/js/28.3d13414a.js"><link rel="prefetch" href="/assets/js/29.4c76408b.js"><link rel="prefetch" href="/assets/js/3.c6d7fc3c.js"><link rel="prefetch" href="/assets/js/30.72837135.js"><link rel="prefetch" href="/assets/js/31.ec3acd91.js"><link rel="prefetch" href="/assets/js/32.7ab63353.js"><link rel="prefetch" href="/assets/js/33.243ce462.js"><link rel="prefetch" href="/assets/js/34.cbed375d.js"><link rel="prefetch" href="/assets/js/35.f8989dec.js"><link rel="prefetch" href="/assets/js/36.8ba39ddf.js"><link rel="prefetch" href="/assets/js/37.dda1b25a.js"><link rel="prefetch" href="/assets/js/38.d25ba1f6.js"><link rel="prefetch" href="/assets/js/39.1ec1d519.js"><link rel="prefetch" href="/assets/js/4.2176f0d8.js"><link rel="prefetch" href="/assets/js/40.94973a05.js"><link rel="prefetch" href="/assets/js/41.e12f4c7d.js"><link rel="prefetch" href="/assets/js/42.46323141.js"><link rel="prefetch" href="/assets/js/43.711ab579.js"><link rel="prefetch" href="/assets/js/44.f645cc5a.js"><link rel="prefetch" href="/assets/js/45.73afa142.js"><link rel="prefetch" href="/assets/js/46.91a9b3ad.js"><link rel="prefetch" href="/assets/js/47.9a2a9d74.js"><link rel="prefetch" href="/assets/js/48.737f52e3.js"><link rel="prefetch" href="/assets/js/49.ecab2c21.js"><link rel="prefetch" href="/assets/js/5.91c18d5d.js"><link rel="prefetch" href="/assets/js/50.24ce14d6.js"><link rel="prefetch" href="/assets/js/51.5abcf9b3.js"><link rel="prefetch" href="/assets/js/52.69567ee5.js"><link rel="prefetch" href="/assets/js/53.1f658822.js"><link rel="prefetch" href="/assets/js/54.c690ae41.js"><link rel="prefetch" href="/assets/js/55.4eb95d0d.js"><link rel="prefetch" href="/assets/js/56.8c782afd.js"><link rel="prefetch" href="/assets/js/57.206d39f5.js"><link rel="prefetch" href="/assets/js/58.92f0ff0c.js"><link rel="prefetch" href="/assets/js/59.2dd1e634.js"><link rel="prefetch" href="/assets/js/6.537e369f.js"><link rel="prefetch" href="/assets/js/60.53f4090e.js"><link rel="prefetch" href="/assets/js/61.6c93bf75.js"><link rel="prefetch" href="/assets/js/62.735d9878.js"><link rel="prefetch" href="/assets/js/63.ccb65206.js"><link rel="prefetch" href="/assets/js/64.5fe06553.js"><link rel="prefetch" href="/assets/js/65.f65b3817.js"><link rel="prefetch" href="/assets/js/66.633ff33c.js"><link rel="prefetch" href="/assets/js/67.b7812b8c.js"><link rel="prefetch" href="/assets/js/68.910f070e.js"><link rel="prefetch" href="/assets/js/69.f0a0f76d.js"><link rel="prefetch" href="/assets/js/7.f36c84d3.js"><link rel="prefetch" href="/assets/js/70.c2294a03.js"><link rel="prefetch" href="/assets/js/71.3c572e74.js"><link rel="prefetch" href="/assets/js/72.c8089ef4.js"><link rel="prefetch" href="/assets/js/73.2e863aa4.js"><link rel="prefetch" href="/assets/js/74.95087ea4.js"><link rel="prefetch" href="/assets/js/8.b0d0596a.js"><link rel="prefetch" href="/assets/js/9.6c11348f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5be624d7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">GooPuu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/basic.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/css/basic.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/javascript/basic.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          基础提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/promote.html" class="nav-link">
+  HTML 中的关注点
+</a></li><li class="dropdown-subitem"><a href="/css/promote.html" class="nav-link">
+  CSS 酷炫特效
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/front-end-project.html" class="nav-link">
+  前端工程化
+</a></div><div class="nav-item"><a href="/git/introduce.html" class="nav-link">
+  GIT
+</a></div><div class="nav-item"><a href="/npm.html" class="nav-link">
+  NPM
+</a></div><div class="nav-item"><a href="/webpack/introduce.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/sass.html" class="nav-link">
+  Sass
+</a></div><div class="nav-item"><a href="/vue.html" class="nav-link">
+  Vue2
+</a></div><div class="nav-item"><a href="/uniapp.html" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/ssr.html" class="nav-link">
+  SSR
+</a></div><div class="nav-item"><a href="/serverless.html" class="nav-link">
+  ServerLess
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="PHP" class="dropdown-title"><span class="title">PHP</span> <span class="arrow down"></span></button> <button type="button" aria-label="PHP" class="mobile-dropdown-title"><span class="title">PHP</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/php/php/anonymous-func-closure.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/php/ci3/entrance.html" class="nav-link">
+  CodeIgnier3
+</a></li><li class="dropdown-item"><!----> <a href="/php/laravel8/index.html" class="nav-link">
+  Laravel8
+</a></li></ul></div></div><div class="nav-item"><a href="/nginx.html" class="nav-link">
+  Nginx
+</a></div><div class="nav-item"><a href="/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/linux.html" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><a href="/docker.html" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/opensource.html" class="nav-link">
+  开源项目
+</a></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/basic.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/css/basic.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/javascript/basic.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          基础提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/promote.html" class="nav-link">
+  HTML 中的关注点
+</a></li><li class="dropdown-subitem"><a href="/css/promote.html" class="nav-link">
+  CSS 酷炫特效
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/front-end-project.html" class="nav-link">
+  前端工程化
+</a></div><div class="nav-item"><a href="/git/introduce.html" class="nav-link">
+  GIT
+</a></div><div class="nav-item"><a href="/npm.html" class="nav-link">
+  NPM
+</a></div><div class="nav-item"><a href="/webpack/introduce.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/sass.html" class="nav-link">
+  Sass
+</a></div><div class="nav-item"><a href="/vue.html" class="nav-link">
+  Vue2
+</a></div><div class="nav-item"><a href="/uniapp.html" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/ssr.html" class="nav-link">
+  SSR
+</a></div><div class="nav-item"><a href="/serverless.html" class="nav-link">
+  ServerLess
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="PHP" class="dropdown-title"><span class="title">PHP</span> <span class="arrow down"></span></button> <button type="button" aria-label="PHP" class="mobile-dropdown-title"><span class="title">PHP</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/php/php/anonymous-func-closure.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/php/ci3/entrance.html" class="nav-link">
+  CodeIgnier3
+</a></li><li class="dropdown-item"><!----> <a href="/php/laravel8/index.html" class="nav-link">
+  Laravel8
+</a></li></ul></div></div><div class="nav-item"><a href="/nginx.html" class="nav-link">
+  Nginx
+</a></div><div class="nav-item"><a href="/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/linux.html" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><a href="/docker.html" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/opensource.html" class="nav-link">
+  开源项目
+</a></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>CSS</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/css/basic.html" class="sidebar-link">认识 CSS</a></li><li><a href="/css/selector.html" class="sidebar-link">选择器</a></li><li><a href="/css/cascade_inheritance.html" class="sidebar-link">层叠与继承</a></li><li><a href="/css/box_module.html" aria-current="page" class="active sidebar-link">盒模型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/css/box_module.html#显示类型" class="sidebar-link">显示类型</a></li><li class="sidebar-sub-header"><a href="/css/box_module.html#块级盒子、内联盒子的表现" class="sidebar-link">块级盒子、内联盒子的表现</a></li><li class="sidebar-sub-header"><a href="/css/box_module.html#盒子尺寸" class="sidebar-link">盒子尺寸</a></li><li class="sidebar-sub-header"><a href="/css/box_module.html#标准盒模型" class="sidebar-link">标准盒模型</a></li><li class="sidebar-sub-header"><a href="/css/box_module.html#替代盒模型" class="sidebar-link">替代盒模型</a></li><li class="sidebar-sub-header"><a href="/css/box_module.html#外边距折叠-重要" class="sidebar-link">外边距折叠（重要）</a></li></ul></li><li><a href="/css/value_unit.html" class="sidebar-link">值和单位</a></li><li><a href="/css/position.html" class="sidebar-link">定位</a></li><li><a href="/css/flex.html" class="sidebar-link">flex 弹性布局</a></li><li><a href="/css/overflow-scroll.html" class="sidebar-link">溢出和滚动</a></li><li><a href="/css/background_border.html" class="sidebar-link">背景与边框</a></li><li><a href="/css/color.html" class="sidebar-link">颜色</a></li><li><a href="/css/fonts.html" class="sidebar-link">字体</a></li><li><a href="/css/text.html" class="sidebar-link">文本</a></li><li><a href="/css/table.html" class="sidebar-link">表格</a></li><li><a href="/css/promote.html" class="sidebar-link">CSS 酷炫特效</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>GIT</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>NPM</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Sass</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2.x</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>uniapp</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>SSR</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ServeLess</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>PHP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CodeIgniter3</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="显示类型"><a href="#显示类型" class="header-anchor">#</a> 显示类型</h2> <p><strong>外部显示类型：</strong> 控制盒子的布局。<br> <strong>内部显示类型：</strong> 控制盒子内部元素的布局。</p> <h2 id="块级盒子、内联盒子的表现"><a href="#块级盒子、内联盒子的表现" class="header-anchor">#</a> 块级盒子、内联盒子的表现</h2> <p><strong>块级盒子：</strong></p> <ul><li>内联方向上（一般为水平方向）占满父容器在该方向上的可用空间</li> <li>每个盒子会换行</li> <li><code>width</code> 和 <code>height</code> 属性能生效</li> <li>内容尺寸、内边距、边框，会放大、缩小盒子，会将周围的其他元素从当前元素周围推开、靠拢，外边距有该效果</li></ul> <p><strong>内联盒子：</strong></p> <ul><li>不会换行</li> <li><code>widht</code> 和 <code>height</code> 不生效</li> <li>内容尺寸、内边距、边框，不会放大、缩小盒子（因为上面的尺寸属性不生效），特殊的，在水平方向上，这些属性以及外边距也会将水平方向的其他元素推开（不推荐）</li></ul> <h2 id="盒子尺寸"><a href="#盒子尺寸" class="header-anchor">#</a> 盒子尺寸</h2> <p>盒子的实际尺寸，包括三个部分：内容区 + 内边距 + 边框。</p> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p>外边距不算作盒子尺寸，它只是盒子之间的间隔。</p></div> <h2 id="标准盒模型"><a href="#标准盒模型" class="header-anchor">#</a> 标准盒模型</h2> <p>块级元素完全的支持了盒模型所有特性，内联元素仅支持部分。<br>
+标准盒模型包括以下特性：</p> <ul><li>内容区，即视野看到的实际内容</li> <li>内边距，内容与边界之间的间隔</li> <li>边框，盒子的边界</li> <li>外边距，盒子与其他盒子之间的间隔</li></ul> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>通常情况下，设置的 <code>width</code> 和 <code>height</code>，如果针对的是标准盒模型，其实设置的是“内容区”的尺寸，此时若增加内边距、边界，则会造成盒子撑大的情况。</p></div> <h2 id="替代盒模型"><a href="#替代盒模型" class="header-anchor">#</a> 替代盒模型</h2> <p>标准盒模型的盒子实际尺寸很难控制，设置了 <code>width</code> 和 <code>height</code> 仅仅是内容区的尺寸，如果要控制盒子的尺寸，需要一些计算。<br>
+替代盒模型可以让设置的 <code>width</code> 和 <code>height</code> 就是盒子的实际尺寸，边框、内边距如果有设置，那么就是固定的值，而内容区的尺寸会自适应的放大、缩小。<br>
+一次性全局使用替代盒模型：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">html</span> <span class="token punctuation">{</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">*, *::before, *::after</span> <span class="token punctuation">{</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="外边距折叠-重要"><a href="#外边距折叠-重要" class="header-anchor">#</a> 外边距折叠（重要）</h2> <blockquote><p>一般说的外边距折叠，是指上、下外边距折叠，且针对的是块级元素之间。</p></blockquote> <p><strong>第一种情况：正常上下布局的块级盒子</strong><br>
+他们相邻的外边距会产生折叠，最终折叠后的外边距为较大值的那个。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+    <span class="token selector">html</span> <span class="token punctuation">{</span> <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token selector">*, *::before, *::after</span> <span class="token punctuation">{</span> <span class="token property">box-sizing</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token selector">div</span> <span class="token punctuation">{</span> <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span> <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token selector">.one</span> <span class="token punctuation">{</span> <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token selector">.two</span> <span class="token punctuation">{</span> <span class="token property">margin-top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>l<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>one<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>two<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>最终的效果就是，这两个盒子之间的外边距被折叠为 <code>200px</code>。</p> <p><strong>第二种情况：嵌套块级盒子之间，没有区分上、下外边界</strong><br> <u>容器盒子，没有被渲染为块级盒子，导致容器盒子与后代块级盒子边界重叠。</u><br>
+这里涉及一个术语 <code>BFC</code>，块级格式上下文，简单的理解就是：元素实际会被渲染为块级盒子。</p> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p>通常情况下，块级标签，比如 <code>div</code>，它就会被渲染为块级盒子，但是如果没有实际的内容或高度（固定高度，最小高度，最大高度等），它在渲染的时候就像不存在一样，它的实际情况会根据内部的元素来决定，因此这个时候它被渲染的结果不是块级盒子。</p></div> <p>这种情况下，如果对容器以及内部嵌套的后代块级盒子设置上外边距，那么他们会折叠，并溢出到容器的上外边界。比如：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+    <span class="token selector">.container</span> <span class="token punctuation">{</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">.box</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>container<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>box<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>最终的结果就是，容器盒子 <code>container</code> 的上边界与嵌套盒子 <code>box</code> 的上边界重叠，并且他们的上外边距折叠为 <code>200px</code>，并且表现为了容器的上外边界，而嵌套盒子与容器的上外边距并没有。<br> <img src="/asserts/2023-05-07_09-21-41.png" alt=""></p> <p>下外边距折叠同理，同上的示例，都设置下外边距的话，也会造成容器与嵌套盒子的下边界重合，他们的下外边距折叠，并且溢出到容器的下方。</p> <p><strong>第三种情况：空的块级元素，上外边距折叠</strong><br>
+第二种其实容器也相当于空的块级元素，只不过他们是嵌套关系；而第三种情况是空的块级元素与兄弟元素产生的“上外边距”折叠。<br>
+其实造成的原因同上，也是因为空的块级元素没有被渲染为块级盒子，导致它没有边界，于是与下方的块级盒子的上边界重叠，最终他们的上外边距产生折叠。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+    <span class="token selector">.empty</span> <span class="token punctuation">{</span> <span class="token property">margin-top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token selector">.box</span> <span class="token punctuation">{</span> <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span> <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span> <span class="token property">margin-top</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>empty<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>box<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>效果图同上。</p> <p><strong>解决外边距重叠</strong><br>
+除了第一种情况，其他的情况都是因为盒子在渲染的时候没有被渲染为“块级盒子”，导致其边界与其他元素产生重叠，那么将这些元素设置为可以被渲染为“块级盒子”的情况即可，这就是 <code>BFC</code>的作用了。<br> <code>BFC</code>，有很多情况都能实现，比如浮动、定位、表格单元格、<code>overflow</code>、弹性元素、网格元素等。<br>
+我通常的做法是：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.handle-margin-collapsing, .handle-margin-collapsing::before, .handle-margin-collapsing::after</span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>只需要把这个类名，加到上述第二种、第三种情况的“容器元素”上，即可以实现 <code>BFC</code>，以此抵消外边距折叠问题。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/css/cascade_inheritance.html" class="prev">
+        层叠与继承
+      </a></span> <span class="next"><a href="/css/value_unit.html">
+        值和单位
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a2be46e1.js" defer></script><script src="/assets/js/2.c4a55d75.js" defer></script><script src="/assets/js/11.116edcd9.js" defer></script>
+  </body>
+</html>

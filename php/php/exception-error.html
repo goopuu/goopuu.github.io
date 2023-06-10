@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>异常和错误处理 | GooPuu</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="技术、前端技术，整理技术文档">
+    
+    <link rel="preload" href="/assets/css/0.styles.5be624d7.css" as="style"><link rel="preload" href="/assets/js/app.a2be46e1.js" as="script"><link rel="preload" href="/assets/js/2.c4a55d75.js" as="script"><link rel="preload" href="/assets/js/64.5fe06553.js" as="script"><link rel="prefetch" href="/assets/js/10.00d50cc6.js"><link rel="prefetch" href="/assets/js/11.116edcd9.js"><link rel="prefetch" href="/assets/js/12.8d813279.js"><link rel="prefetch" href="/assets/js/13.cf20dfe4.js"><link rel="prefetch" href="/assets/js/14.9240ee25.js"><link rel="prefetch" href="/assets/js/15.6f2e36ad.js"><link rel="prefetch" href="/assets/js/16.31963ec0.js"><link rel="prefetch" href="/assets/js/17.1a990a93.js"><link rel="prefetch" href="/assets/js/18.25649302.js"><link rel="prefetch" href="/assets/js/19.f501b2b3.js"><link rel="prefetch" href="/assets/js/20.d950bcb4.js"><link rel="prefetch" href="/assets/js/21.682698e1.js"><link rel="prefetch" href="/assets/js/22.21b445b2.js"><link rel="prefetch" href="/assets/js/23.d400bd60.js"><link rel="prefetch" href="/assets/js/24.2d52e7c6.js"><link rel="prefetch" href="/assets/js/25.b5c2bf83.js"><link rel="prefetch" href="/assets/js/26.9e575ce0.js"><link rel="prefetch" href="/assets/js/27.78bcdcb3.js"><link rel="prefetch" href="/assets/js/28.3d13414a.js"><link rel="prefetch" href="/assets/js/29.4c76408b.js"><link rel="prefetch" href="/assets/js/3.c6d7fc3c.js"><link rel="prefetch" href="/assets/js/30.72837135.js"><link rel="prefetch" href="/assets/js/31.ec3acd91.js"><link rel="prefetch" href="/assets/js/32.7ab63353.js"><link rel="prefetch" href="/assets/js/33.243ce462.js"><link rel="prefetch" href="/assets/js/34.cbed375d.js"><link rel="prefetch" href="/assets/js/35.f8989dec.js"><link rel="prefetch" href="/assets/js/36.8ba39ddf.js"><link rel="prefetch" href="/assets/js/37.dda1b25a.js"><link rel="prefetch" href="/assets/js/38.d25ba1f6.js"><link rel="prefetch" href="/assets/js/39.1ec1d519.js"><link rel="prefetch" href="/assets/js/4.2176f0d8.js"><link rel="prefetch" href="/assets/js/40.94973a05.js"><link rel="prefetch" href="/assets/js/41.e12f4c7d.js"><link rel="prefetch" href="/assets/js/42.46323141.js"><link rel="prefetch" href="/assets/js/43.711ab579.js"><link rel="prefetch" href="/assets/js/44.f645cc5a.js"><link rel="prefetch" href="/assets/js/45.73afa142.js"><link rel="prefetch" href="/assets/js/46.91a9b3ad.js"><link rel="prefetch" href="/assets/js/47.9a2a9d74.js"><link rel="prefetch" href="/assets/js/48.737f52e3.js"><link rel="prefetch" href="/assets/js/49.ecab2c21.js"><link rel="prefetch" href="/assets/js/5.91c18d5d.js"><link rel="prefetch" href="/assets/js/50.24ce14d6.js"><link rel="prefetch" href="/assets/js/51.5abcf9b3.js"><link rel="prefetch" href="/assets/js/52.69567ee5.js"><link rel="prefetch" href="/assets/js/53.1f658822.js"><link rel="prefetch" href="/assets/js/54.c690ae41.js"><link rel="prefetch" href="/assets/js/55.4eb95d0d.js"><link rel="prefetch" href="/assets/js/56.8c782afd.js"><link rel="prefetch" href="/assets/js/57.206d39f5.js"><link rel="prefetch" href="/assets/js/58.92f0ff0c.js"><link rel="prefetch" href="/assets/js/59.2dd1e634.js"><link rel="prefetch" href="/assets/js/6.537e369f.js"><link rel="prefetch" href="/assets/js/60.53f4090e.js"><link rel="prefetch" href="/assets/js/61.6c93bf75.js"><link rel="prefetch" href="/assets/js/62.735d9878.js"><link rel="prefetch" href="/assets/js/63.ccb65206.js"><link rel="prefetch" href="/assets/js/65.f65b3817.js"><link rel="prefetch" href="/assets/js/66.633ff33c.js"><link rel="prefetch" href="/assets/js/67.b7812b8c.js"><link rel="prefetch" href="/assets/js/68.910f070e.js"><link rel="prefetch" href="/assets/js/69.f0a0f76d.js"><link rel="prefetch" href="/assets/js/7.f36c84d3.js"><link rel="prefetch" href="/assets/js/70.c2294a03.js"><link rel="prefetch" href="/assets/js/71.3c572e74.js"><link rel="prefetch" href="/assets/js/72.c8089ef4.js"><link rel="prefetch" href="/assets/js/73.2e863aa4.js"><link rel="prefetch" href="/assets/js/74.95087ea4.js"><link rel="prefetch" href="/assets/js/8.b0d0596a.js"><link rel="prefetch" href="/assets/js/9.6c11348f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5be624d7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">GooPuu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/basic.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/css/basic.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/javascript/basic.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          基础提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/promote.html" class="nav-link">
+  HTML 中的关注点
+</a></li><li class="dropdown-subitem"><a href="/css/promote.html" class="nav-link">
+  CSS 酷炫特效
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/front-end-project.html" class="nav-link">
+  前端工程化
+</a></div><div class="nav-item"><a href="/git/introduce.html" class="nav-link">
+  GIT
+</a></div><div class="nav-item"><a href="/npm.html" class="nav-link">
+  NPM
+</a></div><div class="nav-item"><a href="/webpack/introduce.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/sass.html" class="nav-link">
+  Sass
+</a></div><div class="nav-item"><a href="/vue.html" class="nav-link">
+  Vue2
+</a></div><div class="nav-item"><a href="/uniapp.html" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/ssr.html" class="nav-link">
+  SSR
+</a></div><div class="nav-item"><a href="/serverless.html" class="nav-link">
+  ServerLess
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="PHP" class="dropdown-title"><span class="title">PHP</span> <span class="arrow down"></span></button> <button type="button" aria-label="PHP" class="mobile-dropdown-title"><span class="title">PHP</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/php/php/anonymous-func-closure.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/php/ci3/entrance.html" class="nav-link">
+  CodeIgnier3
+</a></li><li class="dropdown-item"><!----> <a href="/php/laravel8/index.html" class="nav-link">
+  Laravel8
+</a></li></ul></div></div><div class="nav-item"><a href="/nginx.html" class="nav-link">
+  Nginx
+</a></div><div class="nav-item"><a href="/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/linux.html" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><a href="/docker.html" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/opensource.html" class="nav-link">
+  开源项目
+</a></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/basic.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/css/basic.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/javascript/basic.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          基础提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/promote.html" class="nav-link">
+  HTML 中的关注点
+</a></li><li class="dropdown-subitem"><a href="/css/promote.html" class="nav-link">
+  CSS 酷炫特效
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/front-end-project.html" class="nav-link">
+  前端工程化
+</a></div><div class="nav-item"><a href="/git/introduce.html" class="nav-link">
+  GIT
+</a></div><div class="nav-item"><a href="/npm.html" class="nav-link">
+  NPM
+</a></div><div class="nav-item"><a href="/webpack/introduce.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/sass.html" class="nav-link">
+  Sass
+</a></div><div class="nav-item"><a href="/vue.html" class="nav-link">
+  Vue2
+</a></div><div class="nav-item"><a href="/uniapp.html" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/ssr.html" class="nav-link">
+  SSR
+</a></div><div class="nav-item"><a href="/serverless.html" class="nav-link">
+  ServerLess
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="PHP" class="dropdown-title"><span class="title">PHP</span> <span class="arrow down"></span></button> <button type="button" aria-label="PHP" class="mobile-dropdown-title"><span class="title">PHP</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/php/php/anonymous-func-closure.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/php/ci3/entrance.html" class="nav-link">
+  CodeIgnier3
+</a></li><li class="dropdown-item"><!----> <a href="/php/laravel8/index.html" class="nav-link">
+  Laravel8
+</a></li></ul></div></div><div class="nav-item"><a href="/nginx.html" class="nav-link">
+  Nginx
+</a></div><div class="nav-item"><a href="/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/linux.html" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><a href="/docker.html" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/opensource.html" class="nav-link">
+  开源项目
+</a></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>GIT</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>NPM</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Sass</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2.x</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>uniapp</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>SSR</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ServeLess</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>PHP</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/php/php/anonymous-func-closure.html" class="sidebar-link">匿名函数和回调函数和闭包类</a></li><li><a href="/php/php/exception-error.html" aria-current="page" class="active sidebar-link">异常和错误处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_1-错误" class="sidebar-link">1. 错误</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_1-1-有哪些错误" class="sidebar-link">1.1. 有哪些错误？</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_1-2-如何控制报错" class="sidebar-link">1.2 如何控制报错？</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_1-3-如何处理报错" class="sidebar-link">1.3 如何处理报错？</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_1-4-错误应用示例" class="sidebar-link">1.4 错误应用示例</a></li></ul></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_2-异常" class="sidebar-link">2. 异常</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_2-1-异常结构" class="sidebar-link">2.1 异常结构</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_2-2-抛出异常对象" class="sidebar-link">2.2 抛出异常对象</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_2-3-异常对象、spl-异常对象、自定义异常对象" class="sidebar-link">2.3 异常对象、SPL 异常对象、自定义异常对象</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_2-4-捕获异常对象" class="sidebar-link">2.4 捕获异常对象</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_2-5-终止情况、返回情况" class="sidebar-link">2.5 终止情况、返回情况</a></li></ul></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_3-终止" class="sidebar-link">3. 终止</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_4-自定义错误、异常" class="sidebar-link">4. 自定义错误、异常</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_4-1-设置自定义错误处理程序" class="sidebar-link">4.1 设置自定义错误处理程序</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_4-2-注册终止处理程序" class="sidebar-link">4.2 注册终止处理程序</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_4-3-设置自定义异常处理程序" class="sidebar-link">4.3 设置自定义异常处理程序</a></li><li class="sidebar-sub-header"><a href="/php/php/exception-error.html#_4-4-自定义异常、错误" class="sidebar-link">4.4 自定义异常、错误</a></li></ul></li></ul></li><li><a href="/php/php/composer.html" class="sidebar-link">Composer 自动加载</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CodeIgniter3</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_1-错误"><a href="#_1-错误" class="header-anchor">#</a> 1. 错误</h2> <p>所谓“错误”，就是指让应用程序非正常终止，或者产生特殊影响的场景。<br> <code>PHP</code> 中错误需要关注三个点：</p> <ol><li>有哪些错误？</li> <li>哪些错误需要报告，哪些错误可以忽略？（即如何控制报错）</li> <li>对那些报告的错误，如何处理？（即如何处理报错）</li></ol> <h3 id="_1-1-有哪些错误"><a href="#_1-1-有哪些错误" class="header-anchor">#</a> 1.1. 有哪些错误？</h3> <div class="custom-block danger"><p class="custom-block-title">注意</p> <p>在使用错误级别时，强烈建议使用“常量”，而非数值，因为以后版本可能修改数值，但是常量却不会变。</p></div> <table><thead><tr><th>数值</th> <th>常量</th> <th>说明</th></tr></thead> <tbody><tr><td>16</td> <td><code>E_CORE_ERROR</code></td> <td>初始化错误，致命错误，终止执行</td></tr> <tr><td>32</td> <td><code>E_CORE_WARNGING</code></td> <td>初始化错误，警告</td></tr> <tr><td>4</td> <td><code>E_PARSE</code></td> <td>编译错误，语法解析错误，致命错误，终止执行</td></tr> <tr><td>64</td> <td><code>E_COMPILE_ERROR</code></td> <td>编译错误，致命错误，终止执行</td></tr> <tr><td>128</td> <td><code>E_COMPILTE_WARNING</code></td> <td>编译错误，警告</td></tr> <tr><td>1</td> <td><code>E_ERROR</code></td> <td>运行时错误，致命错误，终止执行</td></tr> <tr><td>4096</td> <td><code>E_RECOVERABLE_ERROR</code></td> <td>运行时错误，可被捕获的致命错误，终止执行</td></tr> <tr><td>2</td> <td><code>E_WARNING</code></td> <td>运行时错误，警告</td></tr> <tr><td>4</td> <td><code>E_NOTICE</code></td> <td>运行时错误，通知</td></tr> <tr><td>256</td> <td><code>E_USER_ERROR</code></td> <td>运行时错误，用户产生错误，由 <code>trigger_error()</code> 触发，中止执行</td></tr> <tr><td>512</td> <td><code>E_USER_WARNING</code></td> <td>运行时错误，用户产生错误，警告，由 <code>trigger_error()</code> 触发</td></tr> <tr><td>1024</td> <td><code>E_USER_NOTICE</code></td> <td>运行时错误，用户产生错误，通知，由 <code>trigger_error()</code> 触发</td></tr> <tr><td>16384</td> <td><code>E_USER_DEPRECATED</code></td> <td>运行时错误，用户产生错误，兼容性，由 <code>trigger_error()</code> 触发</td></tr> <tr><td>2048</td> <td><code>_E_STRICT</code></td> <td>修改建议</td></tr> <tr><td>8192</td> <td><code>E_DEPRECATED</code></td> <td>兼容性</td></tr> <tr><td>32767</td> <td><code>E_ALL</code></td> <td>所有错误、警告、通知</td></tr></tbody></table> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p>注意看上述表格，我并没有按照数值的顺序排列，而是按照了“类别”排列，分别是“初始化错误”，“编译错误”，“运行时错误”，“其他错误”，“全部错误”。<br>
+这是有原因的，运行时错误之前的错误，一般发生在我们不可控的地方，这个特性在后面会有注意。</p></div> <h3 id="_1-2-如何控制报错"><a href="#_1-2-如何控制报错" class="header-anchor">#</a> 1.2 如何控制报错？</h3> <p>所谓“控制报错”，即上述的错误表格中，哪些需要在发生错误时报告，哪些不需要？</p> <p>通过 <code>error_reporting</code> 配置项（<code>php.ini</code>）控制全局，或者在运行时通过 <code>error_reporting()</code> 函数控制当前应用生命周期。</p> <div class="custom-block danger"><p class="custom-block-title">注意</p> <p>一：上述提过一句，初始化错误、编译错误，发生在开发人员不可控的地方，也就是说一旦发生这两类的错误，只会根据 <code>error_reporting</code> 配置项来判断是否报错（如果在配置项给定值范围内，则报错；否则不报错）<br>
+二：配置项或函数，值为 <code>0</code> 表示不对任何错误报错，值为 <code>-1</code> 表示对所有错误报错，值为具体的表格中错误范围（二进制位与、或、非）则对具体范围的错误报错<br>
+三：配置项中，如果要控制为“不报告任意错误”，应该显示的指定值为 <code>0</code>，如果是注释掉配置项，<code>PHP</code> 内部还是有兜底的默认的报错控制，大致为 <code>E_ALL &amp; ~E_DEPRECATED</code><br>
+四：经过我的测试发现，当配置项值为 <code>0</code> 时，我制造了一些编译错误，发现没有任何报错，因此得到结论：<strong><code>error_reporting</code>配置项或者 <code>error_reporting()</code> 函数，能够完全控制报错（包括初始化、编译、运行时、其他，全部错误）。</strong></p></div> <p>看如下示例充分理解报错设置，以及报错控制：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># php.ini 中配置</span>
+error_reporting <span class="token operator">=</span> E_ALL <span class="token operator">&amp;</span> ~E_DEPRECATED <span class="token operator">&amp;</span> ~E_STRICT
+
+<span class="token comment"># 脚本中的代码</span>
+error_reporting<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'hello world'</span>              // 末尾缺少分号
+</code></pre></div><p>这个示例充分解释了上面第一条注意，有的错误发生在运行时之前，运行时设置的报错控制对那些错误控制不了（因为这种场景可能不会有运行时，在错误发生的地方就终止了，即使有也还没执行到这里，所以运行时设置无法控制）。<br>
+代码中末尾缺少分号，这个一个解析错误（编译错误）：</p> <ul><li>错误的理解：在运行时设置了 <code>error_reporting(0)</code> 表示不报告任何错误，那么后续出现了编译错误，则不应该报错</li> <li>正确理解：虽然运行时设置不报告任何错误，但是发生的错误是编译错误，在还未运行时之前就产生，因此此时运行时都还没有，则无法控制，则按照配置项的值控制报错，配置值表示会将该类错误报错，因此会报错</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># php.ini 中配置</span>
+error_reporting <span class="token operator">=</span> E_ALL <span class="token operator">&amp;</span> ~E_DEPRECATED <span class="token operator">&amp;</span> ~E_STRICT
+
+<span class="token comment"># 脚本中的代码</span>
+error_reporting<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              // 调用未定义的函数
+</code></pre></div><p>这个示例是上面的反向理解，在初始化、编译阶段并没有错误发生，仅在运行时发现调用了未定义的函数，这是一个致命错误 <code>E_ERROR</code>，但是运行时设置了不报错，因此虽然发生了致命错误但是没有报错（但是脚本会终止执行，见上面表格）。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># php.ini 中的配置</span>
+error_reporting <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token comment"># 脚本中的代码</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'hello world'</span>
+</code></pre></div><p>这个示例中，没有在运行时设置报错控制，那么完全按照配置值控制报错，配置值表示“不对任意错误报错”，那么在脚本中，即使发生了编译错误，也不会报错（但是脚本会终止执行，见上面表格）。</p> <h3 id="_1-3-如何处理报错"><a href="#_1-3-如何处理报错" class="header-anchor">#</a> 1.3 如何处理报错？</h3> <p>所谓“处理报错”，就是指当报错之后，对错误的处理。</p> <div class="custom-block danger"><p class="custom-block-title">关键</p> <p>那么这里引出一个关键点：只有报了错，才会处理（如果不报错，或者错误不在上面介绍的控制范围内，则不处理）</p></div> <p><strong><code>PHP</code> 中处理报错，涉及几个方面：</strong></p> <ul><li>不可控的特性，比如是否终止执行？</li> <li>可控的，是否输出错误信息？</li> <li>可控的，是否记录日志，日志记录在那里？</li></ul> <h4 id="_1-3-1-不可控特性"><a href="#_1-3-1-不可控特性" class="header-anchor">#</a> 1.3.1 不可控特性</h4> <p>关于“开发人员不可控”的一些特性，是 <code>PHP</code> 内核定义的一些特性，当发生对应错误时，该有的响应，比如上面表格中有的错误有特殊的说明：终止执行，比如会生成一些错误描述等等。这部分不用了解太多，只需要了解那些会终止执行即可。</p> <h4 id="_1-3-2-是否输出错误信息"><a href="#_1-3-2-是否输出错误信息" class="header-anchor">#</a> 1.3.2 是否输出错误信息？</h4> <p>是否将错误信息（不可控的部分生成的）输出到客户端？<br>
+通过 <code>display_errors</code> 配置项全局配置，或者 <code>ini_set()</code> 控制当前应用生命周期内是否输出错误信息。</p> <ul><li><code>On, 1</code> 表示输出</li> <li><code>Off, 0</code> 表示不输出</li></ul> <h4 id="_1-3-3-是否记录日志-日志记录在哪"><a href="#_1-3-3-是否记录日志-日志记录在哪" class="header-anchor">#</a> 1.3.3 是否记录日志，日志记录在哪？</h4> <p>是否将错误日志（不可控的部分生成的）记录到日志文件，如果是那么记录到哪？<br>
+通过 <code>log_errors</code> 配置项决定是否记录日志文件</p> <ul><li><code>On, 1</code> 表示需要记录日志</li> <li><code>Off, 0</code> 表示不需要</li></ul> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>虽然记录日志也可以通过 <code>ini_set()</code> 来控制，但是这个功能，原则上应该、必须做成统一的，并且强烈建议需要记录日志。<br>
+因此针对这个功能，只做配置项配置，并且需要记录日志： <code>log_errors = On</code>。</p></div> <p>通过 <code>error_log</code> 配置项全局配置记录错误日志的文件</p> <ul><li><code>syslog</code>，默认</li> <li><code>php_errors.log</code>，可选</li></ul> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>这个配置项的值不太好理解，这 <code>syslog</code> 或者 <code>php_errors.log</code> 到底在哪也没有明确说明，因此一般都“注释掉这个配置”。<br>
+注意，一旦注释，并且开始了“需要记录日志”，那么错误日志最终会“存储到服务器的错误日志中”。</p></div> <p>在服务器配置的 <code>vhost/xxx.conf</code> 中，会有类似的配置：<code>error_log xxx.log</code>，这个文件就是最终记录错误日志的地方。</p> <h3 id="_1-4-错误应用示例"><a href="#_1-4-错误应用示例" class="header-anchor">#</a> 1.4 错误应用示例</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># php.ini 配置</span>
+display_errors <span class="token operator">=</span> Off
+error_reporting <span class="token operator">=</span> E_ALL <span class="token operator">&amp;</span> ~E_DEPRECATED <span class="token operator">&amp;</span> ~E_STRICT
+log_errors <span class="token operator">=</span> On
+<span class="token punctuation">;</span>error_log <span class="token operator">=</span> syslog
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">// ENVIRONMENT 常量表示环境 development表示开发环境， 否则为线上环境</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string single-quoted-string">'development'</span> <span class="token operator">==</span> <span class="token constant">ENVIRONMENT</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">ini_set</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'display_errors'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">ini_set</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'display_errors'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token constant">E_ALL</span> <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token constant">E_NOTICE</span> <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token constant">E_DEPRECATED</span> <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token constant">E_STRICT</span> <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token constant">E_USER_NOTICE</span> <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token constant">E_USER_DEPRECATED</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token comment"># 当编写如下代码时（不管是开发环境，还是线上环境）</span>
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'hello world'</span>
+</code></pre></div><p>解析：因为是编译错误，所以会按照配置来控制、处理错误</p> <ul><li>控制：编译错误会报错</li> <li>处理：
+<ul><li>不会输出错误信息</li> <li>会记录错误日志，但是会记录到服务器错误日志文件中<br>
+客户端看不到错误信息，但是应用被终止了
+<img src="/asserts/php/Snipaste_2023-06-09_10-07-06.png" alt="">
+但是服务器错误日志中记录了错误日志信息
+<img src="/asserts/php/Snipaste_2023-06-09_10-09-56.png" alt=""></li></ul></li></ul> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment"># 开发环境</span>
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment">// 调用未定义的函数</span>
+</code></pre></div><p>解析：是运行时错误，会按照上述设置的控制、处理错误：</p> <ul><li>控制：对所有错误都报错</li> <li>处理：
+<ul><li>会输出错误信息</li> <li>日志记录还是按照配置处理<br>
+客户端看到了错误信息，但是应用被终止了
+<img src="/asserts/php/Snipaste_2023-06-09_10-13-00.png" alt="">
+同时服务器错误日志中也记录了错误日志信息
+<img src="/asserts/php/Snipaste_2023-06-09_10-13-39.png" alt=""></li></ul></li></ul> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment"># 线上环境</span>
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 调用未定义的函数</span>
+</code></pre></div><p>解析：是运行时错误，会按照上述设置的控制、处理错误：</p> <ul><li>控制：调用未定义的函数属于运行时致命错误 <code>E_ERROR</code>，在设置范围，会报错</li> <li>处理：
+<ul><li>不会输出错误信息</li> <li>日志记录还是按照配置处理<br>
+客户端看不到错误信息，但是应用被终止了
+<img src="/asserts/php/Snipaste_2023-06-09_10-16-19.png" alt="">
+同时服务器错误日志中也记录了错误日志信息
+<img src="/asserts/php/Snipaste_2023-06-09_10-17-03.png" alt=""></li></ul></li></ul> <h2 id="_2-异常"><a href="#_2-异常" class="header-anchor">#</a> 2. 异常</h2> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p><code>PHP5</code> 中的异常，严格的说是不完整、不严谨的。<br>
+它将错误、异常区分处理，错误有内置的处理方式但是无法捕获，而异常没有内置处理方式却能捕获，但是却需要手动抛出才能捕获。<br>
+从 <code>PHP7</code> 开始，异常和错误被当作一个模块，错会也会被当作“错误异常”能够被捕获。</p></div> <p>所谓“异常”，指用户触发的，可预见的逻辑错误，需要手动抛出异常，并且必须捕获异常。<br>
+关于 <code>PHP5</code> 中的异常，需要学习：</p> <ul><li>异常结构</li> <li>抛出异常对象</li> <li>异常对象、<code>SPL 异常对象</code>、自定义异常对象</li> <li>捕获异常对象</li> <li>终止情况、返回情况</li></ul> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p>接下来的示例中，默认在 <code>php.ini</code> 中配置：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>display_errors <span class="token operator">=</span> On
+error_reporting <span class="token operator">=</span> E_ALL <span class="token operator">&amp;</span> ~E_DEPRECATED <span class="token operator">&amp;</span> ~E_STRICT
+log_errors <span class="token operator">=</span> On
+<span class="token punctuation">;</span>error_log <span class="token operator">=</span> syslog
+</code></pre></div></div> <h3 id="_2-1-异常结构"><a href="#_2-1-异常结构" class="header-anchor">#</a> 2.1 异常结构</h3> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这是一个完整的最基础的异常结构。<br> <code>try</code> 代码块中，可预见的能够抛出异常对象，通过 <code>throw new 异常对象</code> 抛出。<br> <code>catch</code> 代码块中，参数部分捕获抛出的异常对象，内部处理异常信息。并且这里内部也可以再抛出异常对象。<br> <code>finally</code>可选的，可以理解为一个“兜底”，不太常用，一般不使用。<br>
+接下来着重关注 <code>try ... catch ...</code>。<br> <strong>异常抛出、捕获原理：</strong></p> <ul><li><code>try</code> 中，可预见的抛出异常对象，可以抛出多个异常对象，一旦抛出异常对象，<code>try</code> 中后续的代码将终止执行</li> <li>然后从抛出对象所在作用域查找捕获操作，并且会“冒泡查找”，直到匹配到对应异常对象被捕获的操作，则执行捕获；如果没有找到，会报致命错误</li> <li>所以，<code>catch</code> 可以有多个，但是必须最少有一个能够捕获 <code>try</code> 中抛出的异常对象，一旦匹配则其他 <code>catch</code> 将不会执行</li> <li><code>finally</code>作为兜底，不管是否匹配捕获操作，都会执行</li></ul> <h3 id="_2-2-抛出异常对象"><a href="#_2-2-抛出异常对象" class="header-anchor">#</a> 2.2 抛出异常对象</h3> <p>上面提到了，在 <code>try</code> 或者 <code>catch</code> 中，均可以通过 <code>throw new 异常对象</code> 抛出。<br>
+一旦抛出异常对象，<code>trh</code> 或者 <code>catch</code> 中后续的代码将不会执行。<br>
+一旦抛出异常对象，必须至少有一个捕获操作能够捕获异常对象，否则报“致命错误”。</p> <h3 id="_2-3-异常对象、spl-异常对象、自定义异常对象"><a href="#_2-3-异常对象、spl-异常对象、自定义异常对象" class="header-anchor">#</a> 2.3 异常对象、<code>SPL 异常对象</code>、自定义异常对象</h3> <p>抛出的异常对象，必须是内置异常对象的继承对象。<br>
+内置的异常对象为 <code>Exception</code>，它实现了 <code>Throwable</code> 接口。<br>
+关注 <code>Exception</code> 内置的基础异常对象：</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">// 没有列出来的属性或方法，都是私有的或者不能重写的，不用关注</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Exception</span> <span class="token keyword">implements</span> <span class="token class-name">Throwable</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/* 属性 */</span>
+    <span class="token keyword">protected</span> <span class="token keyword type-declaration">string</span> <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+
+    <span class="token comment">/* 方法 */</span>
+    <span class="token comment">// ...</span>
+    <span class="token keyword">public</span> <span class="token function">__tostring</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">string</span>
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">string</span>
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">int</span>
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token function">getFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">string</span>
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token function">getLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">int</span>
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token function">getTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">array</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>基础异常类，封装好了获取异常信息的基础操作，其中 <code>$message</code> 是可以重写的异常描述，<code>getMessage()</code>是获取异常描述的方法。<br>
+那么可以通过继承来扩展基础异常类，实现更多更加明确的异常，比如：</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name-definition class-name">MissingArgumentsException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'缺少参数'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">InvalidArgumentException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'参数不合法'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>xxx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">MissingArgumentsException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>xxx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">InvalidArgumentException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>MissingArgumentsException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$e</span><span class="token operator">-&gt;</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>InvalidArgumentException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$e</span><span class="token operator">-&gt;</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>基于这个基础异常类，在 <code>SPL</code>（<code>PHP</code> 标准类库）中，已经内置了一些异常类（<code>PHP</code> 标准类库 <code>SPL</code> 是内置的，可以直接使用）。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name-definition class-name">LogicException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>                      <span class="token comment">// 逻辑异常</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">BadFunctionCallException</span> <span class="token keyword">extends</span> <span class="token class-name">LogicException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>    <span class="token comment">// 逻辑异常下更加明细的异常类</span>
+        <span class="token keyword">class</span> <span class="token class-name-definition class-name">BadMethodCallException</span> <span class="token keyword">extends</span> <span class="token class-name">BadFunctionCallException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">DomainException</span> <span class="token keyword">extends</span> <span class="token class-name">LogicException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">InvalidArgumentException</span> <span class="token keyword">extends</span> <span class="token class-name">LogicException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">LengthException</span> <span class="token keyword">extends</span> <span class="token class-name">LogicException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">OutOfRangeException</span> <span class="token keyword">extends</span> <span class="token class-name">LogicException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">RuntimeException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>                   <span class="token comment">// 运行时异常</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">OutOfBoundsException</span> <span class="token keyword">extends</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>     <span class="token comment">// 运行时异常下更加明细的异常类</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">OverflowException</span> <span class="token keyword">extends</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">RangeException</span> <span class="token keyword">extends</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">UnderflowException</span> <span class="token keyword">extends</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">UnexpectedValueException</span> <span class="token keyword">extends</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><p>其实，就算是 <code>SPL 异常</code>，也是基于基础异常类 <code>Exception</code> 继承来扩展的，而扩展的原则，从基础异常类的结构也能够看到：</p> <ul><li>可以修改 <code>$message</code>，异常描述</li> <li>可以自定义 <code>__toString()</code>，当直接输出对象时调用<br>
+除此以外，其他的都不能修改，那么得到如下示例：</li></ul> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name-definition class-name">MyTestException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'测试异常类'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">echoMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string double-quoted-string">&quot;异常描述：<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">message</span><span class="token punctuation">}</span></span> \t&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">echoFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string double-quoted-string">&quot;异常文件：<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">getFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> \t&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">echoLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string double-quoted-string">&quot;异常行数：<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">getLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> \t&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">echoMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">echoFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">echoLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>MyTestException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>MyTestException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">echo</span> <span class="token variable">$e</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>得到如下的测试图例：
+<img src="/asserts/php/Snipaste_2023-06-10_08-36-29.png" alt=""></p> <h3 id="_2-4-捕获异常对象"><a href="#_2-4-捕获异常对象" class="header-anchor">#</a> 2.4 捕获异常对象</h3> <p>捕获可以有多个，但是最少要有一个能够匹配当前抛出的异常对象，否则报“致命错误”。<br>
+并且在捕获代码块中，还可以抛出异常对象，同上，如果这里的异常被抛出，那么该捕获之后，必须至少存在一个能够匹配这里抛出的异常对象。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>xxx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>xxx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>AException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>AException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>BException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>CException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-5-终止情况、返回情况"><a href="#_2-5-终止情况、返回情况" class="header-anchor">#</a> 2.5 终止情况、返回情况</h3> <p><strong>终止：</strong><br>
+在任何抛出异常的作用域块中，一旦抛出将被终止，后续代码将不会执行，而是转到 <code>finally</code> 或者 <code>catch</code> 部分执行；并且，<code>catch</code> 或 <code>finally</code> 最终执行完成后（没有手动的终止脚本）， <code>try ... catch</code> 后续代码继续执行。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>xxx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>MyTestException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>MyTestException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$e</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'down'</span><span class="token punctuation">;</span>
+</code></pre></div><p>上面示例中，最后加了一个输出 <code>down</code>，看图示结果：
+<img src="/asserts/php/Snipaste_2023-06-10_08-46-15.png" alt=""></p> <p><strong>返回：</strong><br>
+这个要涉及到 <code>finally</code>。<br>
+如果在 <code>try</code> 或者 <code>catch</code> 中执行 <code>return</code>，<code>finally</code> 中的代码任然会执行，并且会先执行 <code>finally</code> 中的代码，再执行 <code>try</code>或 <code>catch</code> 中的 <code>return</code>；但是，如果 <code>finally</code> 中也有 <code>return</code>，那么先执行 <code>finally</code> 中的代码，但是暂时不返回，然后执行 <code>try</code> 或者 <code>catch</code> 中的代码，并且也不返回，等都执行完了，最终返回 <code>finally</code> 中的 <code>return</code>。</p> <h2 id="_3-终止"><a href="#_3-终止" class="header-anchor">#</a> 3. 终止</h2> <p>手动终止（<code>exit</code>、<code>die</code>），正常终止（执行完成）都是终止，非正常终止（致命错误）。
+在终止时，<code>PHP</code> 提供了一个钩子，用于在终止时做处理，也因为这个功能，实现了接下来的自定义错误、异常。</p> <h2 id="_4-自定义错误、异常"><a href="#_4-自定义错误、异常" class="header-anchor">#</a> 4. 自定义错误、异常</h2> <div class="custom-block warning"><p class="custom-block-title">原理</p> <p>从上面的学习直到，关于错误，我们只能控制输出、报错，很多错误（除了用户自定义的）的触发都是内置的，我们控制不了，但是异常是我们能够完全控制的，那么，针对应用中的所有错误、异常，我需要统一管理怎么做？<br>
+那就是将错误触发，也转换为异常，最终全部被异常捕获。</p></div> <h3 id="_4-1-设置自定义错误处理程序"><a href="#_4-1-设置自定义错误处理程序" class="header-anchor">#</a> 4.1 设置自定义错误处理程序</h3> <p>通过 <code>set_error_handler(callable $callback, $error_levels = E_ALL)</code>设置回调函数作为自定义错误处理程序。<br> <strong><code>$error_levels = E_ALL</code></strong><br>
+这个参数，控制了“哪些错误，会被自定义错误处理程序处理”，默认所有错误都交由自定义错误处理。</p> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>特殊情况，当自定义错误处理函数 <code>return false</code>，返回 <code>false</code>时，错误处理会冒泡到 “内置错误处理程序处理”。</p></div> <div class="custom-block danger"><p class="custom-block-title">注意</p> <p>当设置了自定义错误处理程序，<code>error_reproting()</code> 设置将失效，也就是说此时开始报错级别将使用 <code>set_error_handler()</code> 的第二个参数指定的错误级别。<br>
+但是，之前通过 <code>error_reproting()</code> 设置的值，还是可以通过该函数获取（只是设置不会生效）。</p></div> <div class="custom-block danger"><p class="custom-block-title">注意</p> <p>特殊的，<code>E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING</code>，这些错误级别，不能由自定义错误处理程序处理。</p></div> <p>那么这就有问题了，既然是自定义错误处理，目的就是想完全控制错误，但是设置了 <code>E_ALL</code> 为第二个参数，居然还有这么多错误无法处理，还有什么意义呢？<br>
+其实，如果仔细观察会发现，上述不能处理的错误，除了 <code>E_ERROR</code> 以外其他的都是“初始化错误”，“编译错误”，而我们设置自定义错误处理程序是在运行时阶段的，必然不能控制那些之前就会触发的错误，显然正确的。<br>
+至于 <code>E_ERROR</code>，其实如果稍微去了解下这个错误就会发现，它包含了很多情况，有的情况是系统问题导致的致命错误，这显然也是程序无法控制的，因此对于这种可能控制、可能控制不了的错误显然也不应该囊括。</p> <p>那么继续，既然这些错误处理不了，那到底如何实现真的自定义处理错误？<br>
+答：这就需要下面的注册终止处理程序了。仔细看上面那些不能处理的错误，除了两个警告以外，其他的都是致命错误，会导致程应用终止，那么从最大限度的自定义控制的话，如果能在应用终止的时候做处理，也变相的处理了那些错误。<br>
+现在先来看能处理的情况下，自定义错误处理程序的要求：</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token function">callback</span><span class="token punctuation">(</span>
+    <span class="token variable">$errno</span><span class="token punctuation">,</span>         <span class="token comment">// 必须，错误码</span>
+    <span class="token variable">$errstr</span><span class="token punctuation">,</span>        <span class="token comment">// 必须，错误描述</span>
+    <span class="token variable">$errfile</span><span class="token punctuation">,</span>       <span class="token comment">// 可选，错误文件</span>
+    <span class="token variable">$errline</span><span class="token punctuation">,</span>       <span class="token comment">// 可选，错误行数</span>
+    <span class="token variable">$errcontext</span>     <span class="token comment">// 可选，错误上下文</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>也就是说，那些能够被自定义错误处理程序控制的错误发生时，会回调这个程序，并且传入对应的五个参数，然后我们自定义错误处理程序拿到这些参数做处理。比如：</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">function</span> <span class="token function-definition function">my_error_handler</span><span class="token punctuation">(</span><span class="token variable">$errno</span><span class="token punctuation">,</span> <span class="token variable">$errstr</span><span class="token punctuation">,</span> <span class="token variable">$errfile</span><span class="token punctuation">,</span> <span class="token variable">$errline</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string double-quoted-string">&quot;错误代码：<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$errno</span><span class="token punctuation">}</span></span>\t 错误信息：<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$errstr</span><span class="token punctuation">}</span></span>\t 错误文件：<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$errfile</span><span class="token punctuation">}</span></span>\t 错误行数：<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$errline</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">exit</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">set_error_handler</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'my_error_handler'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">trigger_error</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'测试'</span><span class="token punctuation">,</span> <span class="token constant">E_USER_ERROR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>得到如下图示结果：
+<img src="/asserts/php/Snipaste_2023-06-10_10-19-33.png" alt="">
+显然，我们已经实现了自定控制错误（允许范围内的错误）。</p> <h3 id="_4-2-注册终止处理程序"><a href="#_4-2-注册终止处理程序" class="header-anchor">#</a> 4.2 注册终止处理程序</h3> <p>通过 <code>register_shutdown_function(callable $callback, ...$args)</code> 注册终止处理程序。<br>
+上面说过终止有手动的 <code>exit</code> 或 <code>die</code>终止，以及程序执行完毕，和致命错误导致的终止。<br>
+也就是说，注册的终止处理程序，在遇到上述情况时，会自动调用回调处理。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">function</span> <span class="token function-definition function">my_shutdown_handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string single-quoted-string">'Script shutdown!'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">register_shutdown_function</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'my_shutdown_handler'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">exit</span><span class="token punctuation">;</span>
+<span class="token comment">// test();         调用未定义的函数</span>
+</code></pre></div><p>直接运行上述示例，就会得到图示结果：
+<img src="/asserts/php/Snipaste_2023-06-10_10-27-15.png" alt=""></p> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>自定义终止处理程序，是在运行时阶段设置的，那么同样“初始化错误”，“编译错误”，定义之前的错误导致的终止，肯定也不能被注册的自定义处理程序管理的。</p></div> <p>咦，既然这些错误还是不能被注册的自定义终止程序处理，那么到底该怎么真的自定义控制绝大部分错误呢？<br>
+答：这里涉及一个内置函数 <code>error_get_last()</code>，它能够获取“最后发生的错误”。如果在注册的自定义终止执行完成之前，调用该函数获取错误，然后判断是否属于自定义错误处理程序不能控制的那些错误，如果属于再手动调用自定义的错误处理程序，那不就解决了自定义错误处理程序控制绝大部分错误了吗！！！<br>
+其实，这就是实现自定义错误控制的原理。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">function</span> <span class="token function-definition function">my_shutdown_handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$last_error</span> <span class="token operator">=</span> <span class="token function">error_get_last</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$last_error</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span><span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">]</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token class-name">E_ERROR</span> <span class="token operator">|</span> <span class="token class-name">E_PARSE</span> <span class="token operator">|</span> <span class="token class-name">E_CORE_ERROR</span> <span class="token operator">|</span> <span class="token class-name">E_CORE_WARNING</span> <span class="token operator">|</span> <span class="token class-name">E_COMPILE_ERROR</span> <span class="token operator">|</span> <span class="token class-name">E_COMPILE_WARNING</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 属于那些自定义错误处理程序 my_error_handler() 默认不能处理的错误</span>
+        <span class="token function">my_error_handler</span><span class="token punctuation">(</span><span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'message'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'line'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 而其他的情况：正常执行完成，其他错误导致终止，exit、die 手动终止，都不会执行任何操作</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>以上，完美解决。（但却是，个别的错误任然没有办法处理，比如 <code>E_CORE_WARNING, E_COMPILE_WARNING</code>)</p> <h3 id="_4-3-设置自定义异常处理程序"><a href="#_4-3-设置自定义异常处理程序" class="header-anchor">#</a> 4.3 设置自定义异常处理程序</h3> <p>好了，上述自定义错误处理、自定义终止处理都实现了绝大部分的错误处理，现在想要对错误进行控制就简单了，将那些控制的错误，以异常的形式抛出，然后捕获，不就实现了控制错误了吗！<br>
+不止如此，如果我还想对异常也同样的自定义控制的话，<code>PHP</code> 也提供了自定义的方案。<br>
+通过 <code>set_exception_handler(callable $callback)</code> 实现自定义异常处理。</p> <div class="custom-block danger"><p class="custom-block-title">注意</p> <p>上面学习异常的时候，没有任何一个地方说过有内置的异常处理操作（错误有内置的处理），并且异常需要手动抛出，并且必须要捕获。</p></div> <p>而这个设置的自定义异常内置了操作，简化了异常的结构：<br> <strong>自定义异常处理，相当于把整个应用（从设置自定义异常处理程序开始）隐形的包括在了 <code>try</code> 代码块中，并且我们设置自定义异常处理程序就相当于 <code>catch</code>。</strong><br>
+因此，一旦设置自定义异常处理程序，在后面的代码中，我们只需要抛出异常，然后不用显示的捕获了，其捕获操作就交给了设置的自定义异常处理程序。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token function">callback</span><span class="token punctuation">(</span><span class="token variable">$e</span><span class="token punctuation">)</span>
+</code></pre></div><p>还记得上面学习异常的时候说过，所有的异常类都需要实现 <code>Throwable</code> 接口，并且是 <code>Excepiton</code> 的扩展类，因此，抛出的对象必须实现 <code>Throwable</code> 接口，而这里的 <code>$e</code> 就是捕获的异常对象。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name-definition class-name">AException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">BException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">CException</span> <span class="token keyword">extends</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><p>如上示例的自定义异常类，它们都继承了基础异常类，同时也实现了 <code>Throwable</code> 接口，那么如下简单示例实现捕获异常。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">function</span> <span class="token function-definition function">my_exception_handler</span><span class="token punctuation">(</span><span class="token variable">$e</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string single-quoted-string">'捕获异常：'</span> <span class="token operator">.</span> <span class="token variable">$e</span><span class="token operator">-&gt;</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">set_exception_handler</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'my_exception_handler'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified"><span class="token punctuation">\</span>Exception</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'测试'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>得到如下图示结果：
+<img src="/asserts/php/Snipaste_2023-06-10_10-56-39.png" alt=""></p> <h3 id="_4-4-自定义异常、错误"><a href="#_4-4-自定义异常、错误" class="header-anchor">#</a> 4.4 自定义异常、错误</h3> <p>通过上述三个知识点学习，结合起来实现控制绝大部分错误，并且将错误以异常形式抛出，并自动捕获统一处理所有异常。</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">function</span> <span class="token function-definition function">my_error_handler</span><span class="token punctuation">(</span><span class="token variable">$errno</span><span class="token punctuation">,</span> <span class="token variable">$errstr</span><span class="token punctuation">,</span> <span class="token variable">$errfile</span><span class="token punctuation">,</span> <span class="token variable">$errline</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">xxx</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-definition function">my_shutdown_handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$last_error</span> <span class="token operator">=</span> <span class="token function">error_get_last</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$last_error</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span><span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">]</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token class-name">E_ERROR</span> <span class="token operator">|</span> <span class="token class-name">E_PARSE</span> <span class="token operator">|</span> <span class="token class-name">E_CORE_ERROR</span> <span class="token operator">|</span> <span class="token class-name">E_CORE_WARNING</span> <span class="token operator">|</span> <span class="token class-name">E_COMPILE_ERROR</span> <span class="token operator">|</span> <span class="token class-name">E_COMPILE_WARNING</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 属于那些自定义错误处理程序 my_error_handler() 默认不能处理的错误</span>
+        <span class="token function">my_error_handler</span><span class="token punctuation">(</span><span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'message'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$last_error</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'line'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function-definition function">my_exception_handler</span><span class="token punctuation">(</span><span class="token variable">$e</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">set_error_hanlder</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'my_error_hanlder'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">register_shutdown_function</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'my_shutdown_handler'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">set_exception_handler</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'my_exception_handler'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/php/php/anonymous-func-closure.html" class="prev">
+        匿名函数和回调函数和闭包类
+      </a></span> <span class="next"><a href="/php/php/composer.html">
+        Composer 自动加载
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a2be46e1.js" defer></script><script src="/assets/js/2.c4a55d75.js" defer></script><script src="/assets/js/64.5fe06553.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>本地操作完整流程 | GooPuu</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="技术、前端技术，整理技术文档">
+    
+    <link rel="preload" href="/assets/css/0.styles.5be624d7.css" as="style"><link rel="preload" href="/assets/js/app.a2be46e1.js" as="script"><link rel="preload" href="/assets/js/2.c4a55d75.js" as="script"><link rel="preload" href="/assets/js/28.3d13414a.js" as="script"><link rel="prefetch" href="/assets/js/10.00d50cc6.js"><link rel="prefetch" href="/assets/js/11.116edcd9.js"><link rel="prefetch" href="/assets/js/12.8d813279.js"><link rel="prefetch" href="/assets/js/13.cf20dfe4.js"><link rel="prefetch" href="/assets/js/14.9240ee25.js"><link rel="prefetch" href="/assets/js/15.6f2e36ad.js"><link rel="prefetch" href="/assets/js/16.31963ec0.js"><link rel="prefetch" href="/assets/js/17.1a990a93.js"><link rel="prefetch" href="/assets/js/18.25649302.js"><link rel="prefetch" href="/assets/js/19.f501b2b3.js"><link rel="prefetch" href="/assets/js/20.d950bcb4.js"><link rel="prefetch" href="/assets/js/21.682698e1.js"><link rel="prefetch" href="/assets/js/22.21b445b2.js"><link rel="prefetch" href="/assets/js/23.d400bd60.js"><link rel="prefetch" href="/assets/js/24.2d52e7c6.js"><link rel="prefetch" href="/assets/js/25.b5c2bf83.js"><link rel="prefetch" href="/assets/js/26.9e575ce0.js"><link rel="prefetch" href="/assets/js/27.78bcdcb3.js"><link rel="prefetch" href="/assets/js/29.4c76408b.js"><link rel="prefetch" href="/assets/js/3.c6d7fc3c.js"><link rel="prefetch" href="/assets/js/30.72837135.js"><link rel="prefetch" href="/assets/js/31.ec3acd91.js"><link rel="prefetch" href="/assets/js/32.7ab63353.js"><link rel="prefetch" href="/assets/js/33.243ce462.js"><link rel="prefetch" href="/assets/js/34.cbed375d.js"><link rel="prefetch" href="/assets/js/35.f8989dec.js"><link rel="prefetch" href="/assets/js/36.8ba39ddf.js"><link rel="prefetch" href="/assets/js/37.dda1b25a.js"><link rel="prefetch" href="/assets/js/38.d25ba1f6.js"><link rel="prefetch" href="/assets/js/39.1ec1d519.js"><link rel="prefetch" href="/assets/js/4.2176f0d8.js"><link rel="prefetch" href="/assets/js/40.94973a05.js"><link rel="prefetch" href="/assets/js/41.e12f4c7d.js"><link rel="prefetch" href="/assets/js/42.46323141.js"><link rel="prefetch" href="/assets/js/43.711ab579.js"><link rel="prefetch" href="/assets/js/44.f645cc5a.js"><link rel="prefetch" href="/assets/js/45.73afa142.js"><link rel="prefetch" href="/assets/js/46.91a9b3ad.js"><link rel="prefetch" href="/assets/js/47.9a2a9d74.js"><link rel="prefetch" href="/assets/js/48.737f52e3.js"><link rel="prefetch" href="/assets/js/49.ecab2c21.js"><link rel="prefetch" href="/assets/js/5.91c18d5d.js"><link rel="prefetch" href="/assets/js/50.24ce14d6.js"><link rel="prefetch" href="/assets/js/51.5abcf9b3.js"><link rel="prefetch" href="/assets/js/52.69567ee5.js"><link rel="prefetch" href="/assets/js/53.1f658822.js"><link rel="prefetch" href="/assets/js/54.c690ae41.js"><link rel="prefetch" href="/assets/js/55.4eb95d0d.js"><link rel="prefetch" href="/assets/js/56.8c782afd.js"><link rel="prefetch" href="/assets/js/57.206d39f5.js"><link rel="prefetch" href="/assets/js/58.92f0ff0c.js"><link rel="prefetch" href="/assets/js/59.2dd1e634.js"><link rel="prefetch" href="/assets/js/6.537e369f.js"><link rel="prefetch" href="/assets/js/60.53f4090e.js"><link rel="prefetch" href="/assets/js/61.6c93bf75.js"><link rel="prefetch" href="/assets/js/62.735d9878.js"><link rel="prefetch" href="/assets/js/63.ccb65206.js"><link rel="prefetch" href="/assets/js/64.5fe06553.js"><link rel="prefetch" href="/assets/js/65.f65b3817.js"><link rel="prefetch" href="/assets/js/66.633ff33c.js"><link rel="prefetch" href="/assets/js/67.b7812b8c.js"><link rel="prefetch" href="/assets/js/68.910f070e.js"><link rel="prefetch" href="/assets/js/69.f0a0f76d.js"><link rel="prefetch" href="/assets/js/7.f36c84d3.js"><link rel="prefetch" href="/assets/js/70.c2294a03.js"><link rel="prefetch" href="/assets/js/71.3c572e74.js"><link rel="prefetch" href="/assets/js/72.c8089ef4.js"><link rel="prefetch" href="/assets/js/73.2e863aa4.js"><link rel="prefetch" href="/assets/js/74.95087ea4.js"><link rel="prefetch" href="/assets/js/8.b0d0596a.js"><link rel="prefetch" href="/assets/js/9.6c11348f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5be624d7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">GooPuu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/basic.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/css/basic.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/javascript/basic.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          基础提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/promote.html" class="nav-link">
+  HTML 中的关注点
+</a></li><li class="dropdown-subitem"><a href="/css/promote.html" class="nav-link">
+  CSS 酷炫特效
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/front-end-project.html" class="nav-link">
+  前端工程化
+</a></div><div class="nav-item"><a href="/git/introduce.html" class="nav-link">
+  GIT
+</a></div><div class="nav-item"><a href="/npm.html" class="nav-link">
+  NPM
+</a></div><div class="nav-item"><a href="/webpack/introduce.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/sass.html" class="nav-link">
+  Sass
+</a></div><div class="nav-item"><a href="/vue.html" class="nav-link">
+  Vue2
+</a></div><div class="nav-item"><a href="/uniapp.html" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/ssr.html" class="nav-link">
+  SSR
+</a></div><div class="nav-item"><a href="/serverless.html" class="nav-link">
+  ServerLess
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="PHP" class="dropdown-title"><span class="title">PHP</span> <span class="arrow down"></span></button> <button type="button" aria-label="PHP" class="mobile-dropdown-title"><span class="title">PHP</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/php/php/anonymous-func-closure.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/php/ci3/entrance.html" class="nav-link">
+  CodeIgnier3
+</a></li><li class="dropdown-item"><!----> <a href="/php/laravel8/index.html" class="nav-link">
+  Laravel8
+</a></li></ul></div></div><div class="nav-item"><a href="/nginx.html" class="nav-link">
+  Nginx
+</a></div><div class="nav-item"><a href="/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/linux.html" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><a href="/docker.html" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/opensource.html" class="nav-link">
+  开源项目
+</a></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/basic.html" class="nav-link">
+  HTML
+</a></li><li class="dropdown-subitem"><a href="/css/basic.html" class="nav-link">
+  CSS
+</a></li><li class="dropdown-subitem"><a href="/javascript/basic.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          基础提升
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/promote.html" class="nav-link">
+  HTML 中的关注点
+</a></li><li class="dropdown-subitem"><a href="/css/promote.html" class="nav-link">
+  CSS 酷炫特效
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/front-end-project.html" class="nav-link">
+  前端工程化
+</a></div><div class="nav-item"><a href="/git/introduce.html" class="nav-link">
+  GIT
+</a></div><div class="nav-item"><a href="/npm.html" class="nav-link">
+  NPM
+</a></div><div class="nav-item"><a href="/webpack/introduce.html" class="nav-link">
+  Webpack
+</a></div><div class="nav-item"><a href="/sass.html" class="nav-link">
+  Sass
+</a></div><div class="nav-item"><a href="/vue.html" class="nav-link">
+  Vue2
+</a></div><div class="nav-item"><a href="/uniapp.html" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/ssr.html" class="nav-link">
+  SSR
+</a></div><div class="nav-item"><a href="/serverless.html" class="nav-link">
+  ServerLess
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="PHP" class="dropdown-title"><span class="title">PHP</span> <span class="arrow down"></span></button> <button type="button" aria-label="PHP" class="mobile-dropdown-title"><span class="title">PHP</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/php/php/anonymous-func-closure.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/php/ci3/entrance.html" class="nav-link">
+  CodeIgnier3
+</a></li><li class="dropdown-item"><!----> <a href="/php/laravel8/index.html" class="nav-link">
+  Laravel8
+</a></li></ul></div></div><div class="nav-item"><a href="/nginx.html" class="nav-link">
+  Nginx
+</a></div><div class="nav-item"><a href="/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/linux.html" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><a href="/docker.html" class="nav-link">
+  Docker
+</a></div><div class="nav-item"><a href="/opensource.html" class="nav-link">
+  开源项目
+</a></div><div class="nav-item"><a href="/about.html" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>GIT</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/git/introduce.html" class="sidebar-link">认识 Git</a></li><li><a href="/git/install.html" class="sidebar-link">安装</a></li><li><a href="/git/repo.html" class="sidebar-link">仓库</a></li><li><a href="/git/local-operate.html" aria-current="page" class="active sidebar-link">本地操作完整流程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/git/local-operate.html#_2-暂存文件" class="sidebar-link">2. 暂存文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/git/local-operate.html#_2-1-跟踪文件-自动暂存" class="sidebar-link">2.1 跟踪文件，自动暂存</a></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_2-2-对已修改的文件暂存" class="sidebar-link">2.2 对已修改的文件暂存</a></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_2-3-取消暂存" class="sidebar-link">2.3 取消暂存</a></li></ul></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_3-查看文件状态" class="sidebar-link">3. 查看文件状态</a></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_4-查看修改" class="sidebar-link">4. 查看修改</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/git/local-operate.html#_4-1-已修改状态的内容" class="sidebar-link">4.1 已修改状态的内容</a></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_4-2-已暂存状态的修改内容" class="sidebar-link">4.2 已暂存状态的修改内容</a></li></ul></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_5-提交修改" class="sidebar-link">5. 提交修改</a></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_6-删除文件" class="sidebar-link">6. 删除文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/git/local-operate.html#_6-1-未跟踪文件" class="sidebar-link">6.1 未跟踪文件</a></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_6-2-已跟踪文件" class="sidebar-link">6.2 已跟踪文件</a></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_6-3-关于删除操作的理解" class="sidebar-link">6.3 关于删除操作的理解</a></li></ul></li><li class="sidebar-sub-header"><a href="/git/local-operate.html#_7-移动文件、重命名文件" class="sidebar-link">7. 移动文件、重命名文件</a></li></ul></li><li><a href="/git/ignore.html" class="sidebar-link">忽略文件</a></li><li><a href="/git/log.html" class="sidebar-link">查看历史</a></li><li><a href="/git/tag.html" class="sidebar-link">打标签</a></li><li><a href="/git/branch.html" class="sidebar-link">分支</a></li><li><a href="/git/remote-operate.html" class="sidebar-link">远程操作完整流程</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>NPM</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Sass</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2.x</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>uniapp</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>SSR</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ServeLess</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>PHP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CodeIgniter3</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="_1-跟踪文件"><a href="#_1-跟踪文件" class="header-anchor">#</a> 1. 跟踪文件</h3> <p>要管理文件，首先需要跟踪文件。<br>
+所谓跟踪文件，其实就是将文件纳入 <code>git</code> 版本控制系统中。</p> <h3 id="_1-1-文件在仓库中-不一定就纳入了版本控制系统"><a href="#_1-1-文件在仓库中-不一定就纳入了版本控制系统" class="header-anchor">#</a> 1.1 文件在仓库中，不一定就纳入了版本控制系统</h3> <p>仓库中的文件，不一定都是已被纳入了版本控制系统的，比如新增的文件，显然在版本控制系统中是不存在的。<br>
+不管是本地初始化的仓库，还是克隆的仓库，必须将文件纳入版本控制系统才能管理：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 纳入具体的文件（包括路径）</span>
+<span class="token function">git</span> <span class="token function">add</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 直接将当前目录下的所有未跟踪的文件一次性纳入</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span> 
+</code></pre></div><p>纳入版本控制系统后，文件自动变为“已暂存”状态，等待提交。</p> <h3 id="_1-2-取消跟踪"><a href="#_1-2-取消跟踪" class="header-anchor">#</a> 1.2 取消跟踪</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> xxx/xxx/xxx.sh
+</code></pre></div><p>此时文件恢复到“未跟踪”情况，即没有被版本控制系统管理的场景，那么可以对他直接删除、或者再次跟踪。</p> <h2 id="_2-暂存文件"><a href="#_2-暂存文件" class="header-anchor">#</a> 2. 暂存文件</h2> <h3 id="_2-1-跟踪文件-自动暂存"><a href="#_2-1-跟踪文件-自动暂存" class="header-anchor">#</a> 2.1 跟踪文件，自动暂存</h3> <p>如上 1.1.</p> <h3 id="_2-2-对已修改的文件暂存"><a href="#_2-2-对已修改的文件暂存" class="header-anchor">#</a> 2.2 对已修改的文件暂存</h3> <p>如果文件是已跟踪的，并且进行了修改，需要对其暂存，等待提交。还是使用 <code>git add</code> 命令实现。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 对具体修改的文件暂存</span>
+<span class="token function">git</span> <span class="token function">add</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 暂存当前目录下的所有已修改文件</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+</code></pre></div><h3 id="_2-3-取消暂存"><a href="#_2-3-取消暂存" class="header-anchor">#</a> 2.3 取消暂存</h3> <p>取消暂存，文件会恢复到上一个状态：</p> <ul><li>跟踪文件后，取消暂存，那么文件恢复到“未跟踪”</li> <li>修改暂存后，取消暂存，那么文件恢复到“已修改”</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 跟踪文件后，取消暂存</span>
+<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 修改暂存后，取消暂存</span>
+<span class="token function">git</span> reset HEAD xxx/xxx/xxx.sh
+</code></pre></div><h2 id="_3-查看文件状态"><a href="#_3-查看文件状态" class="header-anchor">#</a> 3. 查看文件状态</h2> <p>任何时候，都可以查看当前工作仓库的状态，它会展示（如果有）跟踪情况，以及之前介绍的三个状态的文件。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> status
+
+<span class="token comment"># 简单信息</span>
+<span class="token function">git</span> status <span class="token parameter variable">-s</span>
+<span class="token function">git</span> status <span class="token parameter variable">--shrot</span>
+</code></pre></div><h2 id="_4-查看修改"><a href="#_4-查看修改" class="header-anchor">#</a> 4. 查看修改</h2> <h3 id="_4-1-已修改状态的内容"><a href="#_4-1-已修改状态的内容" class="header-anchor">#</a> 4.1 已修改状态的内容</h3> <p>未暂存，则为已修改状态，查看这个状态的内容：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> <span class="token function">diff</span>
+<span class="token function">git</span> <span class="token function">diff</span> xxx/xxx/xxx.sh
+</code></pre></div><h3 id="_4-2-已暂存状态的修改内容"><a href="#_4-2-已暂存状态的修改内容" class="header-anchor">#</a> 4.2 已暂存状态的修改内容</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--staged</span>
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span>
+
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--staged</span> xxx/xxx/xxx.sh
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span> xxx/xxx/xxx.sh
+</code></pre></div><h2 id="_5-提交修改"><a href="#_5-提交修改" class="header-anchor">#</a> 5. 提交修改</h2> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>提交操作，是对“已暂存”的修改提交，将数据更新到版本控制系统的数据库中。
+如果一个文件，同时存在已暂存的修改，和已修改（未暂存）的修改，提交的时候只会把“已暂存”的修改提交上去。</p></div> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">'提交说明信息'</span>
+</code></pre></div><p><strong>一次性暂存、提交：</strong></p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> commit <span class="token parameter variable">-a</span> <span class="token parameter variable">-m</span> <span class="token string">'提交说明信息'</span>
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">注意</p> <p>该命令，只能对“已跟踪”的文件，如果是未跟踪的，还是需要手动 <code>git add xxx</code></p></div> <h2 id="_6-删除文件"><a href="#_6-删除文件" class="header-anchor">#</a> 6. 删除文件</h2> <h3 id="_6-1-未跟踪文件"><a href="#_6-1-未跟踪文件" class="header-anchor">#</a> 6.1 未跟踪文件</h3> <p>上面 1.2 中，对文件取消跟踪后，文件变为“未跟踪”，或者就是一个新增的“未跟踪”文件，它并没有被版本控制系统管理，即相当于本地文件，可以直接删除。</p> <h3 id="_6-2-已跟踪文件"><a href="#_6-2-已跟踪文件" class="header-anchor">#</a> 6.2 已跟踪文件</h3> <blockquote><p>已跟踪文件，要删除它，实质上是将他从“暂存区”删除，因此删除后还需要对暂存去的修改提交。</p></blockquote> <h4 id="_6-2-1-从-git-中删除-并自动删除本地该文件"><a href="#_6-2-1-从-git-中删除-并自动删除本地该文件" class="header-anchor">#</a> 6.2.1 从 <code>git</code> 中删除，并自动删除本地该文件</h4> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 1. 从 git 中删除，并自动删除本地该文件</span>
+<span class="token function">git</span> <span class="token function">rm</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 2. 对暂存区提交（提交删除操作)</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">'xxx'</span>
+</code></pre></div><p><strong>如果想取消删除</strong>：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 1. 从 git 中删除，并自动删除本地该文件</span>
+<span class="token function">git</span> <span class="token function">rm</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 2. 此时若想取消删除操作，首先，取消暂存</span>
+<span class="token function">git</span> reset HEAD xxx/xxx/xxx.sh
+
+<span class="token comment"># 3. 然后，取消修改</span>
+<span class="token function">git</span> checkout -- xxx/xxx/xxx.sh
+</code></pre></div><p>此时如果查看状态，将不再有该文件的删除信息，而且本地也恢复了该文件。</p> <h4 id="_6-2-2-先手动删除本地文件-再从-git-中删除"><a href="#_6-2-2-先手动删除本地文件-再从-git-中删除" class="header-anchor">#</a> 6.2.2 先手动删除本地文件，再从 <code>git</code> 中删除</h4> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>严格的说，这种操作是错误的，应该先从 <code>git</code> 中删除，然后决定（自动、手动）删除本地的该文件。</p></div> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 1. 手动删除本地文件</span>
+<span class="token function">rm</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 2. 再从 git 中删除</span>
+<span class="token function">git</span> <span class="token function">rm</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 3. 最后再对暂存区提交</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">'xxx'</span>
+</code></pre></div><p><strong>一：如果想取消删除</strong>：</p> <blockquote><p>仅修改了本地，即仅删除了本地文件（git中管理的该文件还未操作）</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 1. 手动删除本地文件</span>
+<span class="token function">rm</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 2. 取消修改</span>
+<span class="token function">git</span> checkout -- xxx/xxx/xxx.sh
+</code></pre></div><p>此时取消了删除操作，并且取消了本地修改。</p> <p><strong>二：如果想取消删除</strong>：</p> <blockquote><p>不仅修改了本地，还修改了暂存区，即本地和 <code>git</code> 中，均删除了</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 1. 本地手动删除</span>
+<span class="token function">rm</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 2. git 中也删除</span>
+<span class="token function">git</span> <span class="token function">rm</span> xxx/xxx/xxx.sh
+
+<span class="token comment"># 3. 取消暂存</span>
+<span class="token function">git</span> reset HEAD xxx/xxx/xxx.sh
+
+<span class="token comment"># 4. 取消修改</span>
+<span class="token function">git</span> checkout -- xxx/xxx/xxx.sh
+</code></pre></div><h4 id="_6-2-3-从-git-中删除-但保留本地文件"><a href="#_6-2-3-从-git-中删除-但保留本地文件" class="header-anchor">#</a> 6.2.3 从 <code>git</code> 中删除，但保留本地文件</h4> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>这个操作很有用的一个场景是：假设有一个缓存目录，在暂存时，忘记将该目录添加到“忽略文件”，导致这个目录下缓存文件都被 <code>git</code> 管理了，显然不合理，此时需要取消这个目录的 <code>git</code> 管理，然后再讲目录添加到忽略文件。即从 <code>git</code> 中删除，但本地保留。</p></div> <p>此时，取消暂存即可：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> xxx
+<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--staged</span> xxx
+</code></pre></div><h4 id="_6-2-4-强制删除"><a href="#_6-2-4-强制删除" class="header-anchor">#</a> 6.2.4 强制删除</h4> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>这个操作针对的一个场景是，当删除某些文件时，这些文件已经做了修改（已修改），或者已暂存，此时如果要按照上述的操作的话，需要先取消暂存，然后取消修改，然后再删除。可以通过强制删除，则完全忽略这些文件当前已修改、已暂存的差异。</p></div> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">-f</span> xxx/xxx/xxx.sh
+</code></pre></div><h3 id="_6-3-关于删除操作的理解"><a href="#_6-3-关于删除操作的理解" class="header-anchor">#</a> 6.3 关于删除操作的理解</h3> <p>其实删除操作，无非就是两大类，三小类：</p> <ul><li>两大类
+<ul><li>从本地删除</li> <li>从 <code>git</code> 中删除</li></ul></li> <li>三小类
+<ul><li>从本地删除</li> <li>将“已修改”删除</li> <li>将“已暂存”删除</li></ul></li></ul> <h2 id="_7-移动文件、重命名文件"><a href="#_7-移动文件、重命名文件" class="header-anchor">#</a> 7. 移动文件、重命名文件</h2> <blockquote><p>移动文件、重命名文件其实是一个意思。</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 重命名文件，只需要一条命令</span>
+<span class="token function">git</span> <span class="token function">mv</span> oldname newname
+</code></pre></div><p>它实际上相当于三条命令：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">mv</span> oldname newname
+<span class="token function">git</span> <span class="token function">rm</span> oldname
+<span class="token function">git</span> <span class="token function">add</span> newname
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/git/repo.html" class="prev">
+        仓库
+      </a></span> <span class="next"><a href="/git/ignore.html">
+        忽略文件
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a2be46e1.js" defer></script><script src="/assets/js/2.c4a55d75.js" defer></script><script src="/assets/js/28.3d13414a.js" defer></script>
+  </body>
+</html>
